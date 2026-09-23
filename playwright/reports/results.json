@@ -86,7 +86,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "timedOut",
-                  "duration": 30073,
+                  "duration": 30092,
                   "error": {
                     "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -107,7 +107,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:42:34.679Z",
+                  "startTime": "2026-09-23T06:51:55.074Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -155,12 +155,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3618,
+                  "duration": 1499,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:42:34.668Z",
+                  "startTime": "2026-09-23T06:51:55.055Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -189,12 +189,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 679,
+                  "duration": 611,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:42:39.067Z",
+                  "startTime": "2026-09-23T06:51:56.664Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -231,7 +231,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "failed",
-                  "duration": 290,
+                  "duration": 422,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m",
                     "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts:22:29",
@@ -255,7 +255,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:42:34.668Z",
+                  "startTime": "2026-09-23T06:51:55.055Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -303,7 +303,7 @@
                   "workerIndex": 3,
                   "parallelIndex": 3,
                   "status": "timedOut",
-                  "duration": 30074,
+                  "duration": 30093,
                   "error": {
                     "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -324,7 +324,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-23T06:42:34.674Z",
+                  "startTime": "2026-09-23T06:51:55.057Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -379,12 +379,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 3277,
+                      "duration": 776,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-23T06:42:34.675Z",
+                      "startTime": "2026-09-23T06:51:55.074Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -413,7 +413,7 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5316,
+                      "duration": 5559,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n",
                         "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts:25:8",
@@ -437,7 +437,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-23T06:42:38.731Z",
+                      "startTime": "2026-09-23T06:51:55.974Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -482,12 +482,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 503,
+                      "duration": 429,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-23T06:42:44.376Z",
+                      "startTime": "2026-09-23T06:52:01.863Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -516,12 +516,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 256,
+                      "duration": 287,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-23T06:42:44.965Z",
+                      "startTime": "2026-09-23T06:52:02.388Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -550,12 +550,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 299,
+                      "duration": 677,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-23T06:42:45.229Z",
+                      "startTime": "2026-09-23T06:52:02.685Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -575,8 +575,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-23T06:42:34.187Z",
-    "duration": 31407.489,
+    "startTime": "2026-09-23T06:51:54.625Z",
+    "duration": 30722.064,
     "expected": 6,
     "skipped": 0,
     "unexpected": 4,
