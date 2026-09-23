@@ -87,7 +87,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             const SizedBox(width: 12),
 
                             Text(
-                              'QA Insight',
+                              'Syyni QA',
                               style: TextStyle(
                                 color: AppColors.text(context),
                                 fontSize: 28,

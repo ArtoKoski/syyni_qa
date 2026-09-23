@@ -51,6 +51,39 @@ class HistoryLineChart extends StatelessWidget {
 
               gridData: FlGridData(show: true, drawVerticalLine: false),
 
+              lineTouchData: LineTouchData(
+                touchTooltipData: LineTouchTooltipData(
+                  getTooltipItems: (touchedSpots) {
+                    if (touchedSpots.isEmpty) {
+                      return [];
+                    }
+
+                    final firstSpot = touchedSpots.first;
+
+                    final item = limitedHistory[firstSpot.x.toInt()];
+
+                    final icon = item.source == 'github' ? '☁' : '💻';
+
+                    return touchedSpots.map((spot) {
+                      if (spot != firstSpot) {
+                        return null;
+                      }
+
+                      return LineTooltipItem(
+                        '$icon ${item.source.toUpperCase()}\n'
+                        'Passed: ${item.passedTests}\n'
+                        'Failed: ${item.failedTests}',
+
+                        const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    }).toList();
+                  },
+                ),
+              ),
+
               borderData: FlBorderData(
                 show: true,
                 border: Border.all(color: Colors.white24),
@@ -68,17 +101,25 @@ class HistoryLineChart extends StatelessWidget {
                 bottomTitles: AxisTitles(
                   sideTitles: SideTitles(
                     showTitles: true,
+                    interval: 1,
 
                     getTitlesWidget: (value, meta) {
+                      if (value != value.roundToDouble()) {
+                        return const SizedBox();
+                      }
+
                       final index = value.toInt();
 
                       if (index >= limitedHistory.length) {
                         return const SizedBox();
                       }
 
-                      return Text(
-                        '${index + 1}',
-                        style: const TextStyle(fontSize: 10),
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 4),
+                        child: Text(
+                          limitedHistory[index].date.split(' ').first,
+                          style: const TextStyle(fontSize: 9),
+                        ),
                       );
                     },
                   ),

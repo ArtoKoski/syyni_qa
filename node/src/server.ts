@@ -546,7 +546,7 @@ app.get(
     try {
 
       const owner =
-        "YOUR_GITHUB_USERNAME";
+        "solved13";
 
       const repo =
         "YOUR_REPOSITORY";

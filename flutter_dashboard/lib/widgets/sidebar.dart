@@ -18,7 +18,7 @@ class DashboardSidebar extends StatelessWidget {
           const SizedBox(height: 40),
 
           const Text(
-            'QA Insight Dashboard',
+            'Syyni QA Dashboard',
             style: TextStyle(
               color: Colors.white,
               fontSize: 20,
