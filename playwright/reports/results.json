@@ -2,11 +2,11 @@
   "config": {
     "argv": [
       "C:\\Program Files\\nodejs\\node.exe",
-      "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\node_modules\\@playwright\\test\\cli.js",
+      "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\node_modules\\@playwright\\test\\cli.js",
       "test"
     ],
-    "configFile": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\playwright.config.ts",
-    "rootDir": "C:/Users/Arzz/Documents/scrumprojekti/playwright",
+    "configFile": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\playwright.config.ts",
+    "rootDir": "C:/Users/Arzz/Documents/qa_vision/playwright",
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
@@ -22,7 +22,7 @@
     "preserveOutput": "always",
     "projects": [
       {
-        "outputDir": "C:/Users/Arzz/Documents/scrumprojekti/playwright/test-results",
+        "outputDir": "C:/Users/Arzz/Documents/qa_vision/playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -30,7 +30,7 @@
         },
         "id": "",
         "name": "",
-        "testDir": "C:/Users/Arzz/Documents/scrumprojekti/playwright",
+        "testDir": "C:/Users/Arzz/Documents/qa_vision/playwright",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
@@ -86,7 +86,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "timedOut",
-                  "duration": 30053,
+                  "duration": 30073,
                   "error": {
                     "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -97,28 +97,28 @@
                     },
                     {
                       "location": {
-                        "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\api.spec.ts",
+                        "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\api.spec.ts",
                         "column": 14,
                         "line": 6
                       },
-                      "message": "Error: page.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\n\n  4 |   await page.goto('https://verkkokauppa-chi.vercel.app/');\n  5 |\n> 6 |   await page.fill('#search', 'Nike Pegasus 42');\n    |              ^\n  7 |\n  8 |   await page.keyboard.press('Enter');\n  9 |\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\api.spec.ts:6:14"
+                      "message": "Error: page.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#search')\u001b[22m\n\n\n  4 |   await page.goto('https://verkkokauppa-chi.vercel.app/');\n  5 |\n> 6 |   await page.fill('#search', 'Nike Pegasus 42');\n    |              ^\n  7 |\n  8 |   await page.keyboard.press('Enter');\n  9 |\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\api.spec.ts:6:14"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T06:43:05.850Z",
+                  "startTime": "2026-09-23T06:42:34.679Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-api-Product-search\\test-failed-1.png"
+                      "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-api-Product-search\\test-failed-1.png"
                     },
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-api-Product-search\\error-context.md"
+                      "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-api-Product-search\\error-context.md"
                     }
                   ]
                 }
@@ -155,12 +155,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3650,
+                  "duration": 3618,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T06:43:05.867Z",
+                  "startTime": "2026-09-23T06:42:34.668Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -189,12 +189,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 519,
+                  "duration": 679,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T06:43:10.209Z",
+                  "startTime": "2026-09-23T06:42:39.067Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -231,12 +231,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 2,
                   "status": "failed",
-                  "duration": 229,
+                  "duration": 290,
                   "error": {
                     "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\integration.spec.ts:22:29",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts:22:29",
                     "location": {
-                      "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\integration.spec.ts",
+                      "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts",
                       "column": 29,
                       "line": 22
                     },
@@ -245,27 +245,27 @@
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\integration.spec.ts",
+                        "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts",
                         "column": 29,
                         "line": 22
                       },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m\n\n  20 |   );\n  21 |\n> 22 |   expect(response.status()).toBe(201);\n     |                             ^\n  23 |\n  24 |   const body = await response.json();\n  25 |\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\integration.spec.ts:22:29"
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m201\u001b[39m\nReceived: \u001b[31m405\u001b[39m\n\n  20 |   );\n  21 |\n> 22 |   expect(response.status()).toBe(201);\n     |                             ^\n  23 |\n  24 |   const body = await response.json();\n  25 |\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts:22:29"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T06:43:05.856Z",
+                  "startTime": "2026-09-23T06:42:34.668Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-integration-Order-creation-trough-API\\error-context.md"
+                      "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-integration-Order-creation-trough-API\\error-context.md"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\integration.spec.ts",
+                    "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\integration.spec.ts",
                     "column": 29,
                     "line": 22
                   }
@@ -303,7 +303,7 @@
                   "workerIndex": 3,
                   "parallelIndex": 3,
                   "status": "timedOut",
-                  "duration": 30060,
+                  "duration": 30074,
                   "error": {
                     "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
                     "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -314,28 +314,28 @@
                     },
                     {
                       "location": {
-                        "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\interface.spec.ts",
+                        "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\interface.spec.ts",
                         "column": 50,
                         "line": 7
                       },
-                      "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search products')\u001b[22m\n\n\n   5 |   await page.goto('https://verkkokauppa-chi.vercel.app/');\n   6 |\n>  7 |   await page.getByPlaceholder('Search products').fill('Sneakers');\n     |                                                  ^\n   8 |   await page.keyboard.press('Enter');\n   9 |\n  10 |   await page.locator('.product-card').first().click();\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\interface.spec.ts:7:50"
+                      "message": "Error: locator.fill: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByPlaceholder('Search products')\u001b[22m\n\n\n   5 |   await page.goto('https://verkkokauppa-chi.vercel.app/');\n   6 |\n>  7 |   await page.getByPlaceholder('Search products').fill('Sneakers');\n     |                                                  ^\n   8 |   await page.keyboard.press('Enter');\n   9 |\n  10 |   await page.locator('.product-card').first().click();\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\interface.spec.ts:7:50"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-09-22T06:43:05.866Z",
+                  "startTime": "2026-09-23T06:42:34.674Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-interface-Add-product-to-shopping-cart\\test-failed-1.png"
+                      "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-interface-Add-product-to-shopping-cart\\test-failed-1.png"
                     },
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-interface-Add-product-to-shopping-cart\\error-context.md"
+                      "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-interface-Add-product-to-shopping-cart\\error-context.md"
                     }
                   ]
                 }
@@ -379,12 +379,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 3216,
+                      "duration": 3277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-22T06:43:05.851Z",
+                      "startTime": "2026-09-23T06:42:34.675Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -413,12 +413,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "failed",
-                      "duration": 5259,
+                      "duration": 5316,
                       "error": {
                         "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\webshop.test.ts:25:8",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts:25:8",
                         "location": {
-                          "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\webshop.test.ts",
+                          "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts",
                           "column": 8,
                           "line": 25
                         },
@@ -427,32 +427,32 @@
                       "errors": [
                         {
                           "location": {
-                            "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\webshop.test.ts",
+                            "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts",
                             "column": 8,
                             "line": 25
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n\n\n  23 |\n  24 |     await expect(products.first())\n> 25 |       .toBeVisible();\n     |        ^\n  26 |   });\n  27 |\n  28 |   test('Tuotesivu avautuu', async ({ page }) => {\n    at C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\webshop.test.ts:25:8"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\u001b[22m\n\n\n  23 |\n  24 |     await expect(products.first())\n> 25 |       .toBeVisible();\n     |        ^\n  26 |   });\n  27 |\n  28 |   test('Tuotesivu avautuu', async ({ page }) => {\n    at C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts:25:8"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-22T06:43:09.790Z",
+                      "startTime": "2026-09-23T06:42:38.731Z",
                       "annotations": [],
                       "attachments": [
                         {
                           "name": "screenshot",
                           "contentType": "image/png",
-                          "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-webshop-Verkkokauppa-Tuotteita-löytyy-sivulta\\test-failed-1.png"
+                          "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-webshop-Verkkokauppa-Tuotteita-löytyy-sivulta\\test-failed-1.png"
                         },
                         {
                           "name": "error-context",
                           "contentType": "text/markdown",
-                          "path": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\test-results\\tests-webshop-Verkkokauppa-Tuotteita-löytyy-sivulta\\error-context.md"
+                          "path": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\test-results\\tests-webshop-Verkkokauppa-Tuotteita-löytyy-sivulta\\error-context.md"
                         }
                       ],
                       "errorLocation": {
-                        "file": "C:\\Users\\Arzz\\Documents\\scrumprojekti\\playwright\\tests\\webshop.test.ts",
+                        "file": "C:\\Users\\Arzz\\Documents\\qa_vision\\playwright\\tests\\webshop.test.ts",
                         "column": 8,
                         "line": 25
                       }
@@ -482,12 +482,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 333,
+                      "duration": 503,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-22T06:43:15.421Z",
+                      "startTime": "2026-09-23T06:42:44.376Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -516,12 +516,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 247,
+                      "duration": 256,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-22T06:43:15.850Z",
+                      "startTime": "2026-09-23T06:42:44.965Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -550,12 +550,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 524,
+                      "duration": 299,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-09-22T06:43:16.106Z",
+                      "startTime": "2026-09-23T06:42:45.229Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -575,8 +575,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-09-22T06:43:05.394Z",
-    "duration": 31274.801,
+    "startTime": "2026-09-23T06:42:34.187Z",
+    "duration": 31407.489,
     "expected": 6,
     "skipped": 0,
     "unexpected": 4,

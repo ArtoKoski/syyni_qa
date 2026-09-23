@@ -194,5 +194,54 @@
         "duration": 3208
       }
     ]
+  },
+  {
+    "id": 1790145785782,
+    "source": "local",
+    "date": "23.9.2026 klo 9.43.05",
+    "totalTests": 10,
+    "passedTests": 6,
+    "failedTests": 4,
+    "duration": 30704,
+    "failedTestsDetails": [
+      {
+        "name": "Product search",
+        "error": "Test timeout of 30000ms exceeded."
+      },
+      {
+        "name": "Order creation trough API",
+        "error": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 405"
+      },
+      {
+        "name": "Add product to shopping cart",
+        "error": "Test timeout of 30000ms exceeded."
+      },
+      {
+        "name": "Tuotteita löytyy sivulta",
+        "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: locator('[data-testid=\"product\"], .product, .card').first()\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 5000ms\n  - waiting for locator('[data-testid=\"product\"], .product, .card').first()\n"
+      }
+    ],
+    "slowestTests": [
+      {
+        "name": "Add product to shopping cart",
+        "duration": 30087
+      },
+      {
+        "name": "Product search",
+        "duration": 30074
+      },
+      {
+        "name": "Tuotteita löytyy sivulta",
+        "duration": 5284
+      },
+      {
+        "name": "has title",
+        "duration": 3440
+      },
+      {
+        "name": "Etusivu avautuu",
+        "duration": 3208
+      }
+    ]
   }
 ]

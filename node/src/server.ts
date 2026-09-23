@@ -65,6 +65,38 @@ const getHistoryPath = (
   );
 };
 
+const getLastRunFromHistory = (
+  source: string,
+): string => {
+
+  const historyPath =
+    getHistoryPath(source);
+
+  if (!fs.existsSync(historyPath)) {
+    return "Ei raporttia";
+  }
+
+  const content =
+    fs.readFileSync(
+      historyPath,
+      "utf8",
+    );
+
+  if (!content.trim()) {
+    return "Ei raporttia";
+  }
+
+  const history =
+    JSON.parse(content);
+
+  if (history.length === 0) {
+    return "Ei raporttia";
+  }
+
+  return history[
+    history.length - 1
+  ].date;
+};
 /*
  * Nykyiset tulokset
  */
@@ -81,6 +113,34 @@ app.get("/api/results", (req, res) => {
 
     let localReport: any = null;
     let githubReport: any = null;
+    let latestRun =
+  "Ei raporttia";
+
+const localLastRun =
+  getLastRunFromHistory(
+    "local",
+  );
+
+const githubLastRun =
+  getLastRunFromHistory(
+    "github",
+  );
+
+if (
+  githubLastRun !==
+  "Ei raporttia"
+) {
+  latestRun =
+    githubLastRun;
+}
+
+if (
+  localLastRun !==
+  "Ei raporttia"
+) {
+  latestRun =
+    localLastRun;
+}
 
     if (fs.existsSync(localReportPath)) {
       localReport = JSON.parse(
@@ -126,7 +186,7 @@ app.get("/api/results", (req, res) => {
 
       failedTests,
 
-      lastRun: "All Sources",
+      lastRun: latestRun,
     });
   }
 
@@ -162,10 +222,10 @@ app.get("/api/results", (req, res) => {
       failedTests:
         report.stats?.unexpected ?? 0,
 
-      lastRun: fs
-        .statSync(reportPath)
-        .mtime
-        .toLocaleString("fi-FI"),
+      lastRun:
+  getLastRunFromHistory(
+    source,
+  ),
     });
 
   } catch (error) {
