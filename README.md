@@ -1,4 +1,4 @@
-🎭 Test Automation Dashboard
+🎭 Syynti QA Dashboard
 
 UNDER CONSTRUCTION
 
