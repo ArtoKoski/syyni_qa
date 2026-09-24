@@ -462,7 +462,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Failed Test Details',
+                                'Latest Failure Screenshot',
                                 style: TextStyle(
                                   color: AppColors.text(context),
                                   fontSize: 20,
@@ -473,10 +473,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               const SizedBox(height: 20),
 
                               const LatestFailureScreenshot(),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: AppColors.card(context),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Failed Test Details',
+                                style: TextStyle(
+                                  color: AppColors.text(context),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
 
                               const SizedBox(height: 20),
-
-                              const SizedBox(height: 10),
 
                               FutureBuilder<List<FailedTest>>(
                                 future: ReportService().loadFailedTests(

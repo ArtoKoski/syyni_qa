@@ -4,6 +4,7 @@ import '../services/report_service.dart';
 import '../models/test_execution.dart';
 import '../models/failed_test.dart';
 import '../theme/app_colors.dart';
+import '../widgets/latest_failure_screenshot.dart';
 
 class UiTestsScreen extends StatelessWidget {
   const UiTestsScreen({super.key});
@@ -13,7 +14,13 @@ class UiTestsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background(context),
 
-      appBar: AppBar(title: const Text('UI Tests')),
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+
+        leading: const Icon(Icons.bug_report, color: Colors.white),
+
+        title: const Text('UI Tests'),
+      ),
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -32,6 +39,23 @@ class UiTestsScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
+
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.teal.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.teal),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.bug_report, color: Colors.teal),
+                  SizedBox(width: 12),
+                  Text('Playwright UI automation and browser testing'),
+                ],
+              ),
+            ),
 
             FutureBuilder(
               future: ReportService().loadResults(),
@@ -118,7 +142,41 @@ class UiTestsScreen extends StatelessWidget {
               ),
             ),
 
-            const SizedBox(height: 25),
+            Card(
+              color: AppColors.card(context),
+
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+
+                child: Row(
+                  children: [
+                    const Icon(Icons.language, size: 48, color: Colors.teal),
+
+                    const SizedBox(width: 20),
+
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
+                      children: const [
+                        Text(
+                          'Playwright',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+
+                        SizedBox(height: 4),
+
+                        Text('Browser: Chromium'),
+
+                        Text('Environment: Desktop Chrome'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
 
             _sectionTitle(context, 'Slowest UI Tests'),
 
@@ -148,6 +206,19 @@ class UiTestsScreen extends StatelessWidget {
                   ),
                 );
               },
+            ),
+
+            const SizedBox(height: 25),
+
+            _sectionTitle(context, 'Latest Failure Screenshot'),
+
+            Card(
+              color: AppColors.card(context),
+
+              child: const Padding(
+                padding: EdgeInsets.all(12),
+                child: LatestFailureScreenshot(),
+              ),
             ),
 
             const SizedBox(height: 25),
@@ -196,8 +267,8 @@ class UiTestsScreen extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: Text(
         title,
-        style: TextStyle(
-          color: AppColors.text(context),
+        style: const TextStyle(
+          color: Colors.teal,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),

@@ -8,7 +8,7 @@ import '../models/failed_test.dart';
 import '../models/test_execution.dart';
 
 class ReportService {
-  static const String baseUrl = 'http://10.6.128.122:3000';
+  static String baseUrl = 'http://10.6.128.121:3000';
 
   Future<List<HistoryItem>> loadHistory({String source = 'local'}) async {
     final response = await http.get(
@@ -59,7 +59,7 @@ class ReportService {
 
   Future<List<FailedTest>> loadFailedTests({String source = 'local'}) async {
     final response = await http.get(
-      Uri.parse('$baseUrl/api/results/failed-tests'),
+      Uri.parse('$baseUrl/api/results/failed-tests?source=$source'),
     );
 
     if (response.statusCode != 200) {
