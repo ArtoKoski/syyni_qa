@@ -14,7 +14,13 @@ class ApiTestsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background(context),
 
-      appBar: AppBar(title: const Text('API Tests')),
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+
+        leading: const Icon(Icons.api, color: Colors.white),
+
+        title: const Text('API Tests'),
+      ),
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -29,6 +35,25 @@ class ApiTestsScreen extends StatelessWidget {
                 color: AppColors.text(context),
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.blue.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.blue),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.api, color: Colors.blue),
+                  SizedBox(width: 12),
+                  Text('REST API monitoring and endpoint validation'),
+                ],
               ),
             ),
 
@@ -116,7 +141,7 @@ class ApiTestsScreen extends StatelessWidget {
 
             const SizedBox(height: 25),
 
-            _sectionTitle(context, 'Slowest API Tests'),
+            _sectionTitle(context, 'Slowest API Endpoints'),
 
             FutureBuilder<List<TestExecution>>(
               future: ReportService().loadSlowestTests(),
@@ -206,8 +231,8 @@ class ApiTestsScreen extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 10),
       child: Text(
         title,
-        style: TextStyle(
-          color: AppColors.text(context),
+        style: const TextStyle(
+          color: Colors.blue,
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),

@@ -163,12 +163,45 @@ class PdfReportService {
     pdf.addPage(
       pw.MultiPage(
         build: (context) => [
-          pw.Text(
-            'TEST REPORT',
-            style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold),
+          // --------------------------------------------------
+          // BRANDING
+          // --------------------------------------------------
+
+          pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Text(
+                'SYYNI QA',
+                style: pw.TextStyle(
+                  fontSize: 34,
+                  fontWeight: pw.FontWeight.bold,
+                ),
+              ),
+
+              pw.Text(
+                'Automated Quality Assurance Platform',
+                style: const pw.TextStyle(fontSize: 14),
+              ),
+
+              pw.Divider(),
+            ],
           ),
 
           pw.SizedBox(height: 20),
+
+          pw.Text(
+            'Test Execution Report',
+            style: pw.TextStyle(fontSize: 20, fontWeight: pw.FontWeight.bold),
+          ),
+
+          pw.SizedBox(height: 20),
+
+          // --------------------------------------------------
+          // REPORT INFO
+          // --------------------------------------------------
+          pw.Text('Source: ${report.source}'),
+
+          pw.Text('Test Type: ${report.testType}'),
 
           pw.Text('Date: ${report.date}'),
 
@@ -184,34 +217,64 @@ class PdfReportService {
 
           pw.SizedBox(height: 20),
 
+          // --------------------------------------------------
+          // FAILED TESTS
+          // --------------------------------------------------
           pw.Header(level: 1, text: 'Failed Tests'),
 
           if (report.failedTestsDetails.isEmpty) pw.Text('No failed tests'),
 
           ...report.failedTestsDetails.map(
-            (test) => pw.Column(
-              crossAxisAlignment: pw.CrossAxisAlignment.start,
-              children: [
-                pw.Text(
-                  test['name'].toString(),
-                  style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
-                ),
-                pw.Text(test['error'].toString()),
-                pw.Divider(),
-              ],
+            (test) => pw.Container(
+              margin: const pw.EdgeInsets.only(bottom: 10),
+
+              child: pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+
+                children: [
+                  pw.Text(
+                    test['name']?.toString() ?? 'Unknown Test',
+                    style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
+                  ),
+
+                  if (test['testType'] != null)
+                    pw.Text('Type: ${test['testType']}'),
+
+                  pw.SizedBox(height: 4),
+
+                  pw.Text(test['error']?.toString() ?? 'Unknown error'),
+
+                  pw.Divider(),
+                ],
+              ),
             ),
           ),
 
           pw.SizedBox(height: 20),
 
+          // --------------------------------------------------
+          // SLOWEST TESTS
+          // --------------------------------------------------
           pw.Header(level: 1, text: 'Slowest Tests'),
+
+          if (report.slowestTests.isEmpty)
+            pw.Text('No execution data available'),
 
           ...report.slowestTests.map(
             (test) => pw.Row(
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+
               children: [
-                pw.Text(test['name'].toString()),
-                pw.Text('${(test['duration'] / 1000).toStringAsFixed(1)} s'),
+                pw.Expanded(
+                  child: pw.Text(
+                    '${test['name']}'
+                    '${test['type'] != null ? ' (${test['type']})' : ''}',
+                  ),
+                ),
+
+                pw.Text(
+                  '${((test['duration'] ?? 0) / 1000).toStringAsFixed(1)} s',
+                ),
               ],
             ),
           ),

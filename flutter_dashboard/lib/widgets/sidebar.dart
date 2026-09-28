@@ -12,7 +12,13 @@ class DashboardSidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      color: const Color(0xFF111827),
+
+      decoration: const BoxDecoration(
+        color: Color(0xFF111827),
+
+        border: Border(right: BorderSide(color: Colors.white24, width: 1)),
+      ),
+
       child: Column(
         children: [
           const SizedBox(height: 40),
@@ -97,7 +103,10 @@ class DashboardSidebar extends StatelessWidget {
 
           const Padding(
             padding: EdgeInsets.all(16),
-            child: Text('Version 1.0', style: TextStyle(color: Colors.white54)),
+            child: Text(
+              'Syyni QA Version 0.7',
+              style: TextStyle(color: Colors.white54),
+            ),
           ),
         ],
       ),

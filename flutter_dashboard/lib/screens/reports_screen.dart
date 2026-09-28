@@ -15,7 +15,7 @@ class TestHistoryScreen extends StatefulWidget {
 }
 
 class _TestHistoryScreenState extends State<TestHistoryScreen> {
-  String selectedSource = 'local';
+  String selectedSource = 'all';
   late Future<List<HistoryItem>> historyFuture;
   final Set<int> selectedReports = {};
 
@@ -42,8 +42,17 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
       backgroundColor: AppColors.background(context),
 
       appBar: AppBar(
-        backgroundColor: AppColors.card(context),
-        title: const Text('Reports'),
+        backgroundColor: Colors.deepPurple,
+
+        title: const Row(
+          children: [
+            Icon(Icons.assessment, color: Colors.white),
+
+            SizedBox(width: 12),
+
+            Text('Reports'),
+          ],
+        ),
       ),
 
       body: FutureBuilder<List<HistoryItem>>(
@@ -99,6 +108,33 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
                 ),
 
                 const SizedBox(height: 16),
+
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(16),
+
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple.withOpacity(0.15),
+
+                    borderRadius: BorderRadius.circular(12),
+
+                    border: Border.all(color: Colors.deepPurple),
+                  ),
+
+                  child: const Row(
+                    children: [
+                      Icon(Icons.assessment, color: Colors.deepPurple),
+
+                      SizedBox(width: 12),
+
+                      Expanded(
+                        child: Text(
+                          'Historical test reports, PDF exports and test execution statistics',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
                 Row(
                   children: [

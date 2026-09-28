@@ -22,7 +22,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  String selectedSource = 'local';
+  String selectedSource = 'all';
   bool isRunning = false;
   late Future<TestResult> futureResults;
 
@@ -130,111 +130,55 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         const SizedBox(height: 20),
 
-                        ElevatedButton.icon(
-                          onPressed: isRunning
-                              ? null
-                              : () async {
-                                  setState(() {
-                                    isRunning = true;
-                                  });
+                        Row(
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                setState(() {
+                                  ReportService.baseUrl =
+                                      'http://10.6.128.115:3000';
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text(
-                                        'Playwright testit käynnistyvät...',
-                                      ),
-                                    ),
+                                  futureResults = ReportService().loadResults(
+                                    source: selectedSource,
                                   );
+                                });
+                              },
 
-                                  try {
-                                    await ReportService().runTests();
+                              icon: const Icon(Icons.computer),
 
-                                    if (!mounted) {
-                                      return;
-                                    }
+                              label: const Text('Local'),
 
-                                    setState(() {
-                                      isRunning = false;
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.teal,
+                                foregroundColor: Colors.white,
+                              ),
+                            ),
 
-                                      futureResults = ReportService()
-                                          .loadResults(source: selectedSource);
-                                    });
+                            const SizedBox(width: 12),
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Testit suoritettu'),
-                                      ),
-                                    );
-                                  } catch (e) {
-                                    if (!mounted) {
-                                      return;
-                                    }
+                            ElevatedButton.icon(
+                              onPressed: () {
+                                setState(() {
+                                  ReportService.baseUrl =
+                                      'https://verkkokauppa-1.onrender.com';
 
-                                    setState(() {
-                                      isRunning = false;
-                                    });
+                                  futureResults = ReportService().loadResults(
+                                    source: selectedSource,
+                                  );
+                                });
+                              },
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text('Virhe: $e')),
-                                    );
-                                  }
-                                },
+                              icon: const Icon(Icons.cloud),
 
-                          icon: Icon(
-                            isRunning
-                                ? Icons.hourglass_bottom
-                                : Icons.play_arrow,
-                          ),
+                              label: const Text('Online'),
 
-                          label: Text(
-                            isRunning ? 'Running...' : 'Run Local Tests',
-                          ),
-
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.teal,
-                            foregroundColor: Colors.white,
-                          ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue,
+                                foregroundColor: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
-
-                        const SizedBox(height: 30),
-
-                        ElevatedButton.icon(
-                          onPressed: () async {
-                            try {
-                              await ReportService().runGitHubTests();
-
-                              if (!context.mounted) {
-                                return;
-                              }
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text(
-                                    'GitHub Actions workflow started',
-                                  ),
-                                ),
-                              );
-                            } catch (e) {
-                              if (!context.mounted) {
-                                return;
-                              }
-
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text('GitHub Error: $e')),
-                              );
-                            }
-                          },
-
-                          icon: const Icon(Icons.cloud),
-
-                          label: const Text('Run CI/CD Tests'),
-
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue,
-                            foregroundColor: Colors.white,
-                          ),
-                        ),
-
                         const SizedBox(height: 20),
 
                         Container(
@@ -462,7 +406,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Failed Test Details',
+                                'Latest Failure Screenshot',
                                 style: TextStyle(
                                   color: AppColors.text(context),
                                   fontSize: 20,
@@ -473,10 +417,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               const SizedBox(height: 20),
 
                               const LatestFailureScreenshot(),
+                            ],
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: AppColors.card(context),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Failed Test Details',
+                                style: TextStyle(
+                                  color: AppColors.text(context),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
 
                               const SizedBox(height: 20),
-
-                              const SizedBox(height: 10),
 
                               FutureBuilder<List<FailedTest>>(
                                 future: ReportService().loadFailedTests(

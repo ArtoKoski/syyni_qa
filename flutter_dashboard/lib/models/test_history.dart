@@ -5,10 +5,15 @@ class HistoryItem {
   final int passedTests;
   final int failedTests;
   final int duration;
+
+  /// local | github
   final String source;
 
-  final List<dynamic> failedTestsDetails;
-  final List<dynamic> slowestTests;
+  /// API | UI | Mixed | Unknown
+  final String testType;
+
+  final List<Map<String, dynamic>> failedTestsDetails;
+  final List<Map<String, dynamic>> slowestTests;
 
   HistoryItem({
     required this.id,
@@ -17,24 +22,51 @@ class HistoryItem {
     required this.passedTests,
     required this.failedTests,
     required this.duration,
+    required this.source,
+    required this.testType,
     required this.failedTestsDetails,
     required this.slowestTests,
-    required this.source,
   });
 
   factory HistoryItem.fromJson(Map<String, dynamic> json) {
     return HistoryItem(
-      source: json['source']?.toString() ?? 'local',
       id: json['id'] ?? 0,
       date: json['date'] ?? '',
       totalTests: json['totalTests'] ?? 0,
       passedTests: json['passedTests'] ?? 0,
       failedTests: json['failedTests'] ?? 0,
       duration: json['duration'] ?? 0,
-      failedTestsDetails: json['failedTestsDetails'] is List
-          ? json['failedTestsDetails']
-          : [],
-      slowestTests: json['slowestTests'] ?? [],
+
+      source: json['source']?.toString() ?? 'local',
+
+      testType: json['testType']?.toString() ?? 'Unknown',
+
+      failedTestsDetails:
+          (json['failedTestsDetails'] as List?)
+              ?.map((e) => Map<String, dynamic>.from(e))
+              .toList() ??
+          [],
+
+      slowestTests:
+          (json['slowestTests'] as List?)
+              ?.map((e) => Map<String, dynamic>.from(e))
+              .toList() ??
+          [],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'date': date,
+      'totalTests': totalTests,
+      'passedTests': passedTests,
+      'failedTests': failedTests,
+      'duration': duration,
+      'source': source,
+      'testType': testType,
+      'failedTestsDetails': failedTestsDetails,
+      'slowestTests': slowestTests,
+    };
   }
 }

@@ -14,10 +14,7 @@ class LatestFailureScreenshot extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.all(16),
-            child: Text(
-              'Latest Failed Screenshot',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
+            child: Icon(Icons.photo_camera, size: 28, color: Colors.orange),
           ),
 
           const Padding(
