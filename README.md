@@ -1,93 +1,297 @@
-🎭 Test Automation Dashboard
+🎭 Syyni QA Dashboard
 
-UNDER CONSTRUCTION
+A modern Quality Assurance Analytics Platform built with Flutter, Playwright, Node.js, and MongoDB.
+
+Syyni QA Dashboard provides a centralized view of automated testing results, historical execution data, quality metrics, performance insights, and reporting capabilities.
+
+-------------------------------
 
 📌 Project Overview
 
-A Flutter-based Test Automation Dashboard integrated with Playwright test automation.
+Syyni QA Dashboard is designed to improve visibility into software quality by combining automated testing, analytics, and reporting into a single dashboard.
 
-The project provides:
+The platform integrates with Playwright test automation and provides actionable insights into test execution, failures, trends, and overall QA health.
 
-✅ Automated UI testing
-✅ Automated API testing
-✅ Test execution monitoring
-✅ Historical test tracking
-✅ KPI reporting
-✅ Pass Rate analytics
-✅ Failed Test diagnostics
-✅ Test execution performance analysis
+-------------------------------
 
-Playwright Tests
-       │
-       ▼
- results.json
-       │
-       ▼
- ReportService
-       │
-       ▼
- Flutter Dashboard
-   ├── KPI Cards
-   ├── Pass Rate Trend
-   ├── Slowest Tests
-   ├── Failed Tests
-   ├── History List
-   └── Line Charts
+Core Objectives
+
+Monitor automated test executions
+
+Track quality trends over time
+
+Identify unstable or failing tests
+
+Analyze execution performance
+
+Generate professional reports
+
+Support both local and cloud environments
+
+-------------------------------
+
+🏗 System Architecture
+
+Plain Text
+
+Playwright UI Tests
+
+Playwright API Tests
+
+│
+▼
+results.json
+
+│
+▼
+Node.js API
+
+│
+▼
+MongoDB
+
+│
+▼
+Flutter Dashboard
+
+ 
+├── KPI Cards
+
+├── Quality Score
+
+├── Test Distribution
+
+├── Run Insights
+
+├── Environment Comparison
+
+├── Pass Rate Trends
+
+├── Failed Test Analysis
+
+├── Slowest Tests
+
+├── Historical Data
+
+└── PDF Reporting
+
+-------------------------------
 
 🚀 Features
 
-Dashboard
+🧪 Automated Testing
+
+UI Test Automation
+
+Playwright UI testing
+
+User journey validation
+
+Browser-based test execution
+
+Failure diagnostics
+
+API Test Automation
+
+Endpoint verification
+
+API response validation
+
+Business rule testing
+
+Backend quality monitoring
+
+-------------------------------
+
+📊 Dashboard Analytics
+
+KPI Overview
+
+Real-time quality metrics:
+
 Total Tests
+
 Passed Tests
+
 Failed Tests
+
 Pass Rate %
-Analytics
-Pass Rate Trend Chart
-Historical Test Data
-Failure Tracking
-Reporting
-Failed Test Details
-Slowest Test Analysis
-JSON Reporting
+
+Quality Score
+
+Custom QA Health Score based on:
+
+Pass rate
+
+Failed test count
+
+Test execution duration
+
+Test Distribution
+
+Execution analysis:
+
+API Runs
+
+UI Runs
+
+Mixed Runs
+
+Environment Comparison
+
+Comparison of:
+
+Local executions
+
+GitHub executions
+
+-------------------------------
+
+📈 Historical Analytics
+
+Pass Rate Trend
+
+Visual trend analysis showing how software quality evolves over time.
+
+Run Insights
+
+Calculated metrics:
+
+Best Pass Rate
+
+Worst Pass Rate
+
+Average Failed Tests
+
+Average Execution Duration
+
+Historical Tracking
+
+Stores and visualizes historical execution results to support trend analysis and quality monitoring.
+
+-------------------------------
+
+🔍 Failure Analysis
+
+Failed Test Diagnostics
+
+Provides:
+
+Failed test names
+
+Error messages
+
+Failure details
+
+Screenshot Analysis
+
+Latest failure screenshot preview directly in the dashboard.
+
+Slowest Tests
+
+Performance monitoring for:
+
+Long-running tests
+
+Potential bottlenecks
+
+Test suite optimization
+
+-------------------------------
+
+📄 Reporting
 PDF Reporting
-Settings
+
+Generate professional QA reports containing:
+
+Executive Summary
+Test results
+
+Pass rates
+
+Failure information
+
+Historical insights
+
+JSON Reporting
+
+Uses Playwright JSON results as the primary reporting source.
+
+-------------------------------
+
+🔗 Integrations
+
+GitHub Actions
+
+Automated execution pipelines
+
+Continuous Quality Monitoring
+
+CI/CD integration
+
+Playwright Report
+
+Direct access to:
+
+Playwright HTML Report
+
+Detailed execution logs
+
+Execution traces
+
+⚙ Settings
+
+Appearance
+
 Dark Theme
+
 Light Theme
-Dashboard Visualization Selection
 
-| Technology | Purpose            |
-| ---------- | ------------------ |
-| Flutter    | Dashboard UI       |
-| Dart       | Application Logic  |
-| Playwright | Automated Testing  |
-| Provider   | State Management   |
-| Node.js    | Backend API        |
-| JSON       | Report Storage     |
-| fl\_chart  | Data Visualization |
-----------------------
-👨‍💻 Team
+Dashboard
 
-Arto
---------------------------------
-Flutter Development
+Selectable visualization modes:
 
-Dashboard Design
+History List
 
-Reporting Logic
+Line Chart
 
-------------------------------
+Connection Settings
 
-Vlad
-----------------------------------
-Test Automation
+Custom backend configuration:
 
-Playwright Integration
+Plain Text
 
-Backend Services
- 
-Webshop for testing purposes
+Backend URL
 
-----------------------------------------------------------------
+http://10.6.xxx.xxx:3000
+
+Allows switching between environments without modifying source code.
+
+-------------------------------
+
+🛠 Technology Stack
+
+Technology	PurposeFlutter	Dashboard UI
+
+Dart	Application Logic
+
+Playwright	UI & API Test Automation
+
+Node.js	Backend Services
+
+MongoDB	Data Storage
+
+Provider	State Management
+
+SharedPreferences	Local Settings Storage
+
+PDF Package	Report Generation
+
+fl_chart	Data Visualization
+
+GitHub Actions	CI/CD Automation
+
+-------------------------------
 
 📈 Current Capabilities
 
@@ -99,13 +303,90 @@ Webshop for testing purposes
 
 ✅ PDF Report Export
 
-✅ Dashboard Analytics
+✅ KPI Dashboard
 
-✅ Test Execution Monitoring
+✅ Quality Score System
+
+✅ Test Distribution Analytics
+
+✅ Environment Comparison
+
+✅ Run Insights
 
 ✅ Pass Rate Tracking
 
-✅ Failed Test Analysis
+✅ Failed Test Diagnostics
 
-✅ Line Chart Visualization
+✅ Execution Performance Analysis
 
+✅ Playwright HTML Report Integration
+
+✅ Screenshot-Based Failure Analysis
+
+✅ Dashboard Personalization
+
+✅ GitHub Actions Integration
+
+-------------------------------
+
+🎯 Future Improvements
+
+Defect Tracking System
+
+Test Stability Analytics
+
+Automated Email Reports
+
+Coverage Tracking
+
+Advanced Quality Scoring
+
+Multi-Project Support
+
+Test Execution Scheduling
+
+Ubuntu Server Deployment
+
+--------------------------------
+
+👨‍💻 Team
+
+Arto
+
+Frontend & Analytics
+
+Flutter Development
+
+Dashboard Architecture
+
+Data Visualization
+
+PDF Reporting
+
+Quality Analytics
+
+User Experience Design
+
+-------------------------------
+
+Vlad
+
+Automation & Backend
+
+Playwright Test Automation
+
+API Development
+
+Backend Services
+
+CI/CD Integration
+
+Test Infrastructure
+
+Webshop Application
+
+⭐ Project Goal
+
+Syyni QA Dashboard aims to bridge the gap between automated testing and quality visibility by transforming raw test results into meaningful analytics, actionable insights, and professional reporting.
+
+It serves as a lightweight QA observability platform for monitoring software quality throughout the development lifecycle.

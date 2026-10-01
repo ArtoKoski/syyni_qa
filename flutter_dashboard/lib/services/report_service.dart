@@ -8,7 +8,7 @@ import '../models/failed_test.dart';
 import '../models/test_execution.dart';
 
 class ReportService {
-  static String baseUrl = 'http://10.6.128.114:3000';
+  static const String baseUrl = 'http://10.6.128.122:3000';
 
   Future<List<HistoryItem>> loadHistory({String source = 'local'}) async {
     final response = await http.get(

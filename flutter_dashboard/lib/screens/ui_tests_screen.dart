@@ -14,26 +14,8 @@ class UiTestsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background(context),
 
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
+      appBar: AppBar(title: const Text('UI Tests')),
 
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-
-        title: const Row(
-          children: [
-            Icon(Icons.bug_report, color: Colors.white),
-
-            SizedBox(width: 10),
-
-            Text('UI Tests'),
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
 
@@ -70,6 +52,23 @@ class UiTestsScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
+
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: Colors.teal.withOpacity(0.15),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(color: Colors.teal),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.bug_report, color: Colors.teal),
+                  SizedBox(width: 12),
+                  Text('Playwright UI automation and browser testing'),
+                ],
+              ),
+            ),
 
             FutureBuilder(
               future: ReportService().loadResults(),

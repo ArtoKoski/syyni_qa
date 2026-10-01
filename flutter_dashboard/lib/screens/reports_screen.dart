@@ -43,6 +43,17 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
 
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
+
+        title: const Row(
+          children: [
+            Icon(Icons.assessment, color: Colors.white),
+
+            SizedBox(width: 12),
+
+            Text('Reports'),
+          ],
+        ),
+        backgroundColor: Colors.deepPurple,
         title: const Row(
           children: [
             Icon(Icons.assessment, color: Colors.white),
@@ -119,35 +130,6 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
                 ),
 
                 const SizedBox(height: 16),
-
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(16),
-
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.withOpacity(0.15),
-
-                    borderRadius: BorderRadius.circular(12),
-
-                    border: Border.all(color: Colors.deepPurple),
-                  ),
-
-                  child: const Row(
-                    children: [
-                      Icon(Icons.assessment, color: Colors.deepPurple),
-
-                      SizedBox(width: 12),
-
-                      Expanded(
-                        child: Text(
-                          'Historical test reports, PDF exports and test execution statistics',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 20),
 
                 Row(
                   children: [
