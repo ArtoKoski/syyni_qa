@@ -199,6 +199,7 @@ Allows switching between environments without modifying source code.
 -------------------------------
 
 🛠 Technology Stack
+
 Technology	PurposeFlutter	Dashboard UI
 Dart	Application Logic
 Playwright	UI & API Test Automation
@@ -249,6 +250,7 @@ GitHub Actions	CI/CD Automation
 -------------------------------
 
 🎯 Future Improvements
+
 Defect Tracking System
 Test Stability Analytics
 Automated Email Reports
