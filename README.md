@@ -56,23 +56,14 @@ Flutter Dashboard
 
  
 ├── KPI Cards
-
 ├── Quality Score
-
 ├── Test Distribution
-
 ├── Run Insights
-
 ├── Environment Comparison
-
 ├── Pass Rate Trends
-
 ├── Failed Test Analysis
-
 ├── Slowest Tests
-
 ├── Historical Data
-
 └── PDF Reporting
 
 -------------------------------
@@ -271,7 +262,7 @@ Allows switching between environments without modifying source code.
 
 🛠 Technology Stack
 
-Technology	PurposeFlutter	Dashboard UI
+Flutter	Dashboard UI
 
 Dart	Application Logic
 
