@@ -15,11 +15,17 @@ The platform integrates with Playwright test automation and provides actionable 
 -------------------------------
 
 Core Objectives
+
 Monitor automated test executions
+
 Track quality trends over time
+
 Identify unstable or failing tests
+
 Analyze execution performance
+
 Generate professional reports
+
 Support both local and cloud environments
 
 -------------------------------
@@ -27,30 +33,46 @@ Support both local and cloud environments
 🏗 System Architecture
 
 Plain Text
+
 Playwright UI Tests
+
 Playwright API Tests
+
 │
 ▼
 results.json
+
 │
 ▼
 Node.js API
+
 │
 ▼
 MongoDB
+
 │
 ▼
 Flutter Dashboard
+
  
 ├── KPI Cards
+
 ├── Quality Score
+
 ├── Test Distribution
+
 ├── Run Insights
+
 ├── Environment Comparison
+
 ├── Pass Rate Trends
+
 ├── Failed Test Analysis
+
 ├── Slowest Tests
+
 ├── Historical Data
+
 └── PDF Reporting
 
 -------------------------------
@@ -60,14 +82,23 @@ Flutter Dashboard
 🧪 Automated Testing
 
 UI Test Automation
+
 Playwright UI testing
+
 User journey validation
+
 Browser-based test execution
+
 Failure diagnostics
+
 API Test Automation
+
 Endpoint verification
+
 API response validation
+
 Business rule testing
+
 Backend quality monitoring
 
 -------------------------------
@@ -79,28 +110,39 @@ KPI Overview
 Real-time quality metrics:
 
 Total Tests
+
 Passed Tests
+
 Failed Tests
+
 Pass Rate %
+
 Quality Score
 
 Custom QA Health Score based on:
 
 Pass rate
+
 Failed test count
+
 Test execution duration
+
 Test Distribution
 
 Execution analysis:
 
 API Runs
+
 UI Runs
+
 Mixed Runs
+
 Environment Comparison
 
 Comparison of:
 
 Local executions
+
 GitHub executions
 
 -------------------------------
@@ -116,9 +158,13 @@ Run Insights
 Calculated metrics:
 
 Best Pass Rate
+
 Worst Pass Rate
+
 Average Failed Tests
+
 Average Execution Duration
+
 Historical Tracking
 
 Stores and visualizes historical execution results to support trend analysis and quality monitoring.
@@ -132,8 +178,11 @@ Failed Test Diagnostics
 Provides:
 
 Failed test names
+
 Error messages
+
 Failure details
+
 Screenshot Analysis
 
 Latest failure screenshot preview directly in the dashboard.
@@ -143,7 +192,9 @@ Slowest Tests
 Performance monitoring for:
 
 Long-running tests
+
 Potential bottlenecks
+
 Test suite optimization
 
 -------------------------------
@@ -155,9 +206,13 @@ Generate professional QA reports containing:
 
 Executive Summary
 Test results
+
 Pass rates
+
 Failure information
+
 Historical insights
+
 JSON Reporting
 
 Uses Playwright JSON results as the primary reporting source.
@@ -165,33 +220,49 @@ Uses Playwright JSON results as the primary reporting source.
 -------------------------------
 
 🔗 Integrations
+
 GitHub Actions
+
 Automated execution pipelines
+
 Continuous Quality Monitoring
+
 CI/CD integration
+
 Playwright Report
 
 Direct access to:
 
 Playwright HTML Report
+
 Detailed execution logs
+
 Execution traces
+
 ⚙ Settings
+
 Appearance
+
 Dark Theme
+
 Light Theme
+
 Dashboard
 
 Selectable visualization modes:
 
 History List
+
 Line Chart
+
 Connection Settings
 
 Custom backend configuration:
 
 Plain Text
+
 Backend URL
+
 http://10.6.xxx.xxx:3000
 
 Allows switching between environments without modifying source code.
@@ -201,14 +272,23 @@ Allows switching between environments without modifying source code.
 🛠 Technology Stack
 
 Technology	PurposeFlutter	Dashboard UI
+
 Dart	Application Logic
+
 Playwright	UI & API Test Automation
+
 Node.js	Backend Services
+
 MongoDB	Data Storage
+
 Provider	State Management
+
 SharedPreferences	Local Settings Storage
+
 PDF Package	Report Generation
+
 fl_chart	Data Visualization
+
 GitHub Actions	CI/CD Automation
 
 -------------------------------
@@ -252,12 +332,19 @@ GitHub Actions	CI/CD Automation
 🎯 Future Improvements
 
 Defect Tracking System
+
 Test Stability Analytics
+
 Automated Email Reports
+
 Coverage Tracking
+
 Advanced Quality Scoring
+
 Multi-Project Support
+
 Test Execution Scheduling
+
 Ubuntu Server Deployment
 
 --------------------------------
@@ -265,21 +352,37 @@ Ubuntu Server Deployment
 👨‍💻 Team
 
 Arto
+
 Frontend & Analytics
+
 Flutter Development
+
 Dashboard Architecture
+
 Data Visualization
+
 PDF Reporting
+
 Quality Analytics
+
 User Experience Design
+
 -------------------------------
+
 Vlad
+
 Automation & Backend
+
 Playwright Test Automation
+
 API Development
+
 Backend Services
+
 CI/CD Integration
+
 Test Infrastructure
+
 Webshop Application
 
 ⭐ Project Goal
