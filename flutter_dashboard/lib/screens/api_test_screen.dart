@@ -14,7 +14,26 @@ class ApiTestsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.background(context),
 
-      appBar: AppBar(title: const Text('API Tests')),
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+
+        title: const Row(
+          children: [
+            Icon(Icons.api, color: Colors.white),
+
+            SizedBox(width: 10),
+
+            Text('API Tests'),
+          ],
+        ),
+      ),
 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -52,23 +71,6 @@ class ApiTestsScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Colors.blue.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.blue),
-              ),
-              child: const Row(
-                children: [
-                  Icon(Icons.api, color: Colors.blue),
-                  SizedBox(width: 12),
-                  Text('REST API monitoring and endpoint validation'),
-                ],
-              ),
-            ),
 
             FutureBuilder<TestResult>(
               future: ReportService().loadResults(),

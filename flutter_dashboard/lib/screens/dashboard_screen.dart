@@ -221,7 +221,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 foregroundColor: Colors.white,
                               ),
                             ),
-
                             const SizedBox(width: 12),
 
                             IconButton(
@@ -235,15 +234,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                               tooltip: 'Refresh Dashboard',
 
-                              icon: const Icon(Icons.refresh, size: 18),
-
-                              color: Colors.white,
+                              icon: const Icon(
+                                Icons.refresh,
+                                color: Colors.white,
+                              ),
 
                               style: IconButton.styleFrom(
                                 backgroundColor: Colors.green,
-                                minimumSize: const Size(32, 32),
-                                padding: EdgeInsets.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                padding: const EdgeInsets.all(1),
                               ),
                             ),
                           ],
@@ -402,12 +400,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             final history = snapshot.data!;
 
                             if (history.isEmpty) {
-                              return Card(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Text('No test history available'),
-                                ),
-                              );
+                              return const SizedBox();
                             }
 
                             final latest = history.last;
