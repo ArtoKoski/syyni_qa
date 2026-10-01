@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      title: 'Playwright Dashboard',
+      title: 'Syyni QA - Automated Quality Assurance Platform ',
 
       theme: ThemeData(
         brightness: Brightness.light,

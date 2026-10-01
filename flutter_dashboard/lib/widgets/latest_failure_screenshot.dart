@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../services/report_service.dart';
+
 class LatestFailureScreenshot extends StatelessWidget {
   const LatestFailureScreenshot({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const screenshotUrl = 'http://localhost:3000/api/latest-failure-screenshot';
+    final screenshotUrl =
+        '${ReportService.baseUrl}/api/latest-failure-screenshot';
 
     return Card(
       child: Column(

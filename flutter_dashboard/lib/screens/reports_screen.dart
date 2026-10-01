@@ -43,16 +43,25 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
 
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-
         title: const Row(
           children: [
             Icon(Icons.assessment, color: Colors.white),
-
             SizedBox(width: 12),
-
             Text('Reports'),
           ],
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                historyFuture = ReportService().loadHistory(
+                  source: selectedSource,
+                );
+              });
+            },
+          ),
+        ],
       ),
 
       body: FutureBuilder<List<HistoryItem>>(
@@ -72,7 +81,9 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final history = snapshot.data!;
+          final history = List<HistoryItem>.from(snapshot.data!);
+
+          history.sort((a, b) => b.id.compareTo(a.id));
 
           final totalRuns = history.length;
 
@@ -135,6 +146,8 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
                     ],
                   ),
                 ),
+
+                const SizedBox(height: 20),
 
                 Row(
                   children: [
@@ -368,7 +381,7 @@ class _TestHistoryScreenState extends State<TestHistoryScreen> {
                         ),
                       ],
 
-                      rows: history.reversed.map((item) {
+                      rows: history.map((item) {
                         final runRate = item.totalTests == 0
                             ? '0'
                             : ((item.passedTests / item.totalTests) * 100)

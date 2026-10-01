@@ -8,7 +8,7 @@ import '../models/failed_test.dart';
 import '../models/test_execution.dart';
 
 class ReportService {
-  static String baseUrl = 'http://10.6.128.115:3000';
+  static String baseUrl = 'http://10.6.128.114:3000';
 
   Future<List<HistoryItem>> loadHistory({String source = 'local'}) async {
     final response = await http.get(
@@ -48,6 +48,15 @@ class ReportService {
     }
 
     final data = jsonDecode(response.body);
+
+    if (response.body.trim().isEmpty) {
+      return TestResult(
+        totalTests: 0,
+        passedTests: 0,
+        failedTests: 0,
+        lastRun: 'Ei saatavilla',
+      );
+    }
 
     return TestResult(
       totalTests: data['totalTests'] ?? 0,

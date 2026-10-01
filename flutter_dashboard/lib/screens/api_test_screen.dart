@@ -17,9 +17,22 @@ class ApiTestsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue,
 
-        leading: const Icon(Icons.api, color: Colors.white),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
 
-        title: const Text('API Tests'),
+        title: const Row(
+          children: [
+            Icon(Icons.api, color: Colors.white),
+
+            SizedBox(width: 10),
+
+            Text('API Tests'),
+          ],
+        ),
       ),
 
       body: SingleChildScrollView(

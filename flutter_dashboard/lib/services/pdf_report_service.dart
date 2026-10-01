@@ -196,6 +196,43 @@ class PdfReportService {
 
           pw.SizedBox(height: 20),
 
+          pw.Container(
+            padding: const pw.EdgeInsets.all(10),
+
+            decoration: pw.BoxDecoration(border: pw.Border.all()),
+
+            child: pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+
+              children: [
+                pw.Text(
+                  'EXECUTIVE SUMMARY',
+                  style: pw.TextStyle(
+                    fontWeight: pw.FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+
+                pw.SizedBox(height: 10),
+
+                pw.Text('Total Tests: ${report.totalTests}'),
+
+                pw.Text('Passed Tests: ${report.passedTests}'),
+
+                pw.Text('Failed Tests: ${report.failedTests}'),
+
+                pw.Text('Pass Rate: ${passRate.toStringAsFixed(1)}%'),
+
+                pw.Text(
+                  'Execution Status: '
+                  '${report.failedTests == 0 ? 'PASSED' : 'FAILED'}',
+                ),
+              ],
+            ),
+          ),
+
+          pw.SizedBox(height: 20),
+
           // --------------------------------------------------
           // REPORT INFO
           // --------------------------------------------------

@@ -13,6 +13,15 @@ import '../models/test_execution.dart';
 import '../models/failed_test.dart';
 import '../widgets/pass_rate_trend_chart.dart';
 import '../widgets/latest_failure_screenshot.dart';
+import '../widgets/build_info_card.dart';
+import '../models/build_info.dart';
+import '../widgets/test_type_analytics_card.dart';
+import '../widgets/environment_comparison_card.dart';
+import '../widgets/run_insights_card.dart';
+import '../widgets/quality_score_card.dart';
+import '../services/settings_service.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -26,11 +35,38 @@ class _DashboardScreenState extends State<DashboardScreen> {
   bool isRunning = false;
   late Future<TestResult> futureResults;
 
+  static const String playwrightReportUrl =
+      'http://10.6.128.114:3000/report/index.html';
+
+  final SettingsService _settingsService = SettingsService();
+
+  Future<void> _openPlaywrightReport() async {
+    final uri = Uri.parse(playwrightReportUrl);
+
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch Playwright Report');
+    }
+  }
+
+  Future<void> _loadBackendUrl() async {
+    final savedUrl = await _settingsService.loadBackendUrl();
+
+    ReportService.baseUrl = savedUrl;
+
+    if (mounted) {
+      setState(() {
+        futureResults = ReportService().loadResults(source: selectedSource);
+      });
+    }
+  }
+
   @override
   void initState() {
     super.initState();
 
     futureResults = ReportService().loadResults(source: selectedSource);
+
+    _loadBackendUrl();
   }
 
   @override
@@ -63,6 +99,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 }
 
                 final data = snapshot.data!;
+
+                debugPrint(
+                  'total=${data.totalTests}, '
+                  'passed=${data.passedTests}, '
+                  'failed=${data.failedTests}',
+                );
 
                 final passRate = data.totalTests == 0
                     ? '0'
@@ -133,10 +175,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Row(
                           children: [
                             ElevatedButton.icon(
-                              onPressed: () {
+                              onPressed: () async {
+                                final localUrl = await _settingsService
+                                    .loadBackendUrl();
+
                                 setState(() {
-                                  ReportService.baseUrl =
-                                      'http://10.6.128.115:3000';
+                                  ReportService.baseUrl = localUrl;
 
                                   futureResults = ReportService().loadResults(
                                     source: selectedSource,
@@ -177,8 +221,34 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 foregroundColor: Colors.white,
                               ),
                             ),
+
+                            const SizedBox(width: 12),
+
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  futureResults = ReportService().loadResults(
+                                    source: selectedSource,
+                                  );
+                                });
+                              },
+
+                              tooltip: 'Refresh Dashboard',
+
+                              icon: const Icon(Icons.refresh, size: 18),
+
+                              color: Colors.white,
+
+                              style: IconButton.styleFrom(
+                                backgroundColor: Colors.green,
+                                minimumSize: const Size(32, 32),
+                                padding: EdgeInsets.zero,
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                              ),
+                            ),
                           ],
                         ),
+
                         const SizedBox(height: 20),
 
                         Container(
@@ -256,6 +326,36 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
                         const SizedBox(height: 20),
 
+                        BuildInfoCard(
+                          buildInfo: const BuildInfo(
+                            branch: 'main',
+                            commit: 'c539da0',
+                            author: 'Vlad Shpychka',
+                            message: 'tokin for dashboard',
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        ElevatedButton.icon(
+                          onPressed: _openPlaywrightReport,
+
+                          icon: const Icon(Icons.open_in_browser),
+
+                          label: const Text('Open Playwright Report'),
+
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.indigo,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20,
+                              vertical: 16,
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 20),
+
                         Row(
                           children: [
                             _buildCard(
@@ -286,6 +386,161 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               Colors.orange,
                             ),
                           ],
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        FutureBuilder<List<HistoryItem>>(
+                          future: ReportService().loadHistory(
+                            source: selectedSource,
+                          ),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) {
+                              return const CircularProgressIndicator();
+                            }
+
+                            final history = snapshot.data!;
+
+                            if (history.isEmpty) {
+                              return Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20),
+                                  child: Text('No test history available'),
+                                ),
+                              );
+                            }
+
+                            final latest = history.last;
+
+                            final passRate = latest.totalTests == 0
+                                ? 0.0
+                                : (latest.passedTests / latest.totalTests) *
+                                      100;
+
+                            final failurePenalty = latest.failedTests * 2;
+
+                            final durationPenalty =
+                                (latest.duration / 1000) > 60 ? 5 : 0;
+
+                            double score =
+                                passRate - failurePenalty - durationPenalty;
+
+                            score = score.clamp(0, 100);
+
+                            return QualityScoreCard(
+                              score: score,
+                              passRate: passRate,
+                              failedTests: latest.failedTests,
+                              durationSeconds: latest.duration / 1000,
+                            );
+                          },
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        FutureBuilder<List<HistoryItem>>(
+                          future: ReportService().loadHistory(
+                            source: selectedSource,
+                          ),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) {
+                              return const CircularProgressIndicator();
+                            }
+
+                            final history = snapshot.data!;
+
+                            final apiRuns = history
+                                .where((h) => h.testType == 'API')
+                                .length;
+
+                            final uiRuns = history
+                                .where((h) => h.testType == 'UI')
+                                .length;
+
+                            final mixedRuns = history
+                                .where((h) => h.testType == 'Mixed')
+                                .length;
+
+                            final localRuns = history
+                                .where((h) => h.source == 'local')
+                                .length;
+
+                            final githubRuns = history
+                                .where((h) => h.source == 'github')
+                                .length;
+
+                            return Column(
+                              children: [
+                                TestTypeAnalyticsCard(
+                                  apiRuns: apiRuns,
+                                  uiRuns: uiRuns,
+                                  mixedRuns: mixedRuns,
+                                ),
+
+                                const SizedBox(height: 20),
+
+                                EnvironmentComparisonCard(
+                                  localRuns: localRuns,
+                                  githubRuns: githubRuns,
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+
+                        const SizedBox(height: 20),
+
+                        FutureBuilder<List<HistoryItem>>(
+                          future: ReportService().loadHistory(
+                            source: selectedSource,
+                          ),
+                          builder: (context, snapshot) {
+                            if (!snapshot.hasData) {
+                              return const CircularProgressIndicator();
+                            }
+
+                            final history = snapshot.data!;
+
+                            if (history.isEmpty) {
+                              return const SizedBox();
+                            }
+
+                            final passRates = history.map((h) {
+                              if (h.totalTests == 0) {
+                                return 0.0;
+                              }
+
+                              return (h.passedTests / h.totalTests) * 100;
+                            }).toList();
+
+                            final bestPassRate = passRates.reduce(
+                              (a, b) => a > b ? a : b,
+                            );
+
+                            final worstPassRate = passRates.reduce(
+                              (a, b) => a < b ? a : b,
+                            );
+
+                            final averageFailedTests =
+                                history
+                                    .map((h) => h.failedTests)
+                                    .reduce((a, b) => a + b) /
+                                history.length;
+
+                            final averageDurationSeconds =
+                                history
+                                    .map((h) => h.duration)
+                                    .reduce((a, b) => a + b) /
+                                history.length /
+                                1000;
+
+                            return RunInsightsCard(
+                              bestPassRate: bestPassRate,
+                              worstPassRate: worstPassRate,
+                              averageFailedTests: averageFailedTests,
+                              averageDurationSeconds: averageDurationSeconds,
+                            );
+                          },
                         ),
 
                         const SizedBox(height: 20),

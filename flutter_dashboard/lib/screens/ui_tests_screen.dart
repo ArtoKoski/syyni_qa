@@ -17,11 +17,23 @@ class UiTestsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.teal,
 
-        leading: const Icon(Icons.bug_report, color: Colors.white),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
 
-        title: const Text('UI Tests'),
+        title: const Row(
+          children: [
+            Icon(Icons.bug_report, color: Colors.white),
+
+            SizedBox(width: 10),
+
+            Text('UI Tests'),
+          ],
+        ),
       ),
-
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
 
@@ -56,6 +68,8 @@ class UiTestsScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            const SizedBox(height: 20),
 
             FutureBuilder(
               future: ReportService().loadResults(),

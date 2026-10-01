@@ -5,6 +5,8 @@ class SettingsService {
 
   static const String dashboardKey = 'dashboard_widget';
 
+  static const String backendUrlKey = 'backend_url';
+
   Future<bool> loadDarkTheme() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -27,5 +29,17 @@ class SettingsService {
     final prefs = await SharedPreferences.getInstance();
 
     await prefs.setString(dashboardKey, value);
+  }
+
+  Future<String> loadBackendUrl() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    return prefs.getString(backendUrlKey) ?? 'http://10.6.128.114:3000';
+  }
+
+  Future<void> saveBackendUrl(String value) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString(backendUrlKey, value);
   }
 }
