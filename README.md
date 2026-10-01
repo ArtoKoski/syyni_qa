@@ -256,7 +256,9 @@ Backend URL
 
 http://10.6.xxx.xxx:3000
 
-Allows switching between environments without modifying source code.
+Allows switching between environments without modifying source code. 
+
+Option to test dashboard with mock data
 
 -------------------------------
 
