@@ -289,37 +289,37 @@ GitHub Actions	CI/CD Automation
 
 ⏍ Current Capabilities
 
-☑ UI Test Automation
+√ UI Test Automation
 
-☑ API Test Automation
+√ API Test Automation
 
-☑ Historical Reporting
+√ Historical Reporting
 
-☑ PDF Report Export
+√ PDF Report Export
 
-☑ KPI Dashboard
+√ KPI Dashboard
 
-☑ Quality Score System
+√ Quality Score System
 
-☑ Test Distribution Analytics
+√ Test Distribution Analytics
 
-☑ Environment Comparison
+√ Environment Comparison
 
-☑ Run Insights
+√ Run Insights
 
-☑ Pass Rate Tracking
+√ Pass Rate Tracking
 
-☑ Failed Test Diagnostics
+√ Failed Test Diagnostics
 
-☑ Execution Performance Analysis
+√ Execution Performance Analysis
 
-☑ Playwright HTML Report Integration
+√ Playwright HTML Report Integration
 
-☑ Screenshot-Based Failure Analysis
+√ Screenshot-Based Failure Analysis
 
-☑ Dashboard Personalization
+√ Dashboard Personalization
 
-☑ GitHub Actions Integration
+√ GitHub Actions Integration
 
 -------------------------------
 
