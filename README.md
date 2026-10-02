@@ -1,4 +1,4 @@
-🎭 Syyni QA Dashboard
+ꌇꌈ Syyni QA Dashboard
 
 A modern Quality Assurance Analytics Platform built with Flutter, Playwright, Node.js, and MongoDB.
 
