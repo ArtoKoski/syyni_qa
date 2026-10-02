@@ -6,7 +6,7 @@ Syyni QA Dashboard provides a centralized view of automated testing results, his
 
 -------------------------------
 
-📌 Project Overview
+⎙ Project Overview
 
 Syyni QA Dashboard is designed to improve visibility into software quality by combining automated testing, analytics, and reporting into a single dashboard.
 
@@ -30,7 +30,7 @@ Support both local and cloud environments
 
 -------------------------------
 
-🏗 System Architecture
+⌥ System Architecture
 
 Plain Text
 
@@ -68,9 +68,9 @@ Flutter Dashboard
 
 -------------------------------
 
-🚀 Features
+⎆ Features
 
-🧪 Automated Testing
+⎘ Automated Testing
 
 UI Test Automation
 
@@ -94,7 +94,7 @@ Backend quality monitoring
 
 -------------------------------
 
-📊 Dashboard Analytics
+▥ Dashboard Analytics
 
 KPI Overview
 
@@ -138,7 +138,7 @@ GitHub executions
 
 -------------------------------
 
-📈 Historical Analytics
+⋰ Historical Analytics
 
 Pass Rate Trend
 
@@ -162,7 +162,7 @@ Stores and visualizes historical execution results to support trend analysis and
 
 -------------------------------
 
-🔍 Failure Analysis
+⌕ Failure Analysis
 
 Failed Test Diagnostics
 
@@ -190,7 +190,8 @@ Test suite optimization
 
 -------------------------------
 
-📄 Reporting
+䷬ Reporting
+
 PDF Reporting
 
 Generate professional QA reports containing:
@@ -210,7 +211,7 @@ Uses Playwright JSON results as the primary reporting source.
 
 -------------------------------
 
-🔗 Integrations
+⚯ Integrations
 
 GitHub Actions
 
@@ -230,7 +231,7 @@ Detailed execution logs
 
 Execution traces
 
-⚙ Settings
+⎈ Settings
 
 Appearance
 
@@ -262,7 +263,7 @@ Option to test dashboard with mock data
 
 -------------------------------
 
-🛠 Technology Stack
+⌬ Technology Stack
 
 Flutter	Dashboard UI
 
@@ -286,43 +287,43 @@ GitHub Actions	CI/CD Automation
 
 -------------------------------
 
-📈 Current Capabilities
+⏍ Current Capabilities
 
-✅ UI Test Automation
+☑ UI Test Automation
 
-✅ API Test Automation
+☑ API Test Automation
 
-✅ Historical Reporting
+☑ Historical Reporting
 
-✅ PDF Report Export
+☑ PDF Report Export
 
-✅ KPI Dashboard
+☑ KPI Dashboard
 
-✅ Quality Score System
+☑ Quality Score System
 
-✅ Test Distribution Analytics
+☑ Test Distribution Analytics
 
-✅ Environment Comparison
+☑ Environment Comparison
 
-✅ Run Insights
+☑ Run Insights
 
-✅ Pass Rate Tracking
+☑ Pass Rate Tracking
 
-✅ Failed Test Diagnostics
+☑ Failed Test Diagnostics
 
-✅ Execution Performance Analysis
+☑ Execution Performance Analysis
 
-✅ Playwright HTML Report Integration
+☑ Playwright HTML Report Integration
 
-✅ Screenshot-Based Failure Analysis
+☑ Screenshot-Based Failure Analysis
 
-✅ Dashboard Personalization
+☑ Dashboard Personalization
 
-✅ GitHub Actions Integration
+☑ GitHub Actions Integration
 
 -------------------------------
 
-🎯 Future Improvements
+⍈ Future Improvements
 
 Defect Tracking System
 
@@ -342,7 +343,7 @@ Ubuntu Server Deployment
 
 --------------------------------
 
-👨‍💻 Team
+ꐕꐕ Team
 
 Arto
 
@@ -378,7 +379,7 @@ Test Infrastructure
 
 Webshop Application
 
-⭐ Project Goal
+⛱ Project Goal
 
 Syyni QA Dashboard aims to bridge the gap between automated testing and quality visibility by transforming raw test results into meaningful analytics, actionable insights, and professional reporting.
 
