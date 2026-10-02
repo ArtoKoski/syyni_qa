@@ -14,7 +14,7 @@ The platform integrates with Playwright test automation and provides actionable 
 
 -------------------------------
 
-Core Objectives
+⏣ Core Objectives
 
 Monitor automated test executions
 
