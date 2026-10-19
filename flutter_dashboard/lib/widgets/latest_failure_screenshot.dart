@@ -8,7 +8,8 @@ class LatestFailureScreenshot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenshotUrl =
-        '${ReportService.baseUrl}/api/latest-failure-screenshot';
+        '${ReportService.baseUrl}/api/latest-failure-screenshot'
+        '?t=${DateTime.now().millisecondsSinceEpoch}';
 
     return Card(
       child: Column(
@@ -37,7 +38,11 @@ class LatestFailureScreenshot extends StatelessWidget {
                     child: InteractiveViewer(
                       minScale: 0.5,
                       maxScale: 4,
-                      child: Image.network(screenshotUrl, fit: BoxFit.contain),
+                      child: Image.network(
+                        screenshotUrl,
+                        key: ValueKey(screenshotUrl),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   );
                 },
@@ -53,8 +58,8 @@ class LatestFailureScreenshot extends StatelessWidget {
 
                 child: Image.network(
                   screenshotUrl,
-
-                  fit: BoxFit.cover,
+                  key: ValueKey(screenshotUrl),
+                  fit: BoxFit.contain,
 
                   errorBuilder: (context, error, stackTrace) {
                     return const Center(

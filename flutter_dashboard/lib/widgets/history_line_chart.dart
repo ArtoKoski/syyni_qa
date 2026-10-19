@@ -47,8 +47,12 @@ class HistoryLineChart extends StatelessWidget {
           height: 300,
           child: LineChart(
             LineChartData(
-              minY: 0,
+              clipData: const FlClipData.none(),
 
+              minX: -0.5,
+              maxX: (limitedHistory.length - 1).toDouble() + 0.5,
+
+              minY: 0,
               gridData: FlGridData(show: true, drawVerticalLine: false),
 
               lineTouchData: LineTouchData(
@@ -60,7 +64,12 @@ class HistoryLineChart extends StatelessWidget {
 
                     final firstSpot = touchedSpots.first;
 
-                    final item = limitedHistory[firstSpot.x.toInt()];
+                    final index = firstSpot.x.round().clamp(
+                      0,
+                      limitedHistory.length - 1,
+                    );
+
+                    final item = limitedHistory[index];
 
                     final icon = item.source == 'github' ? '☁' : '💻';
 
@@ -69,11 +78,17 @@ class HistoryLineChart extends StatelessWidget {
                         return null;
                       }
 
-                      return LineTooltipItem(
-                        '$icon ${item.source.toUpperCase()}\n'
-                        'Passed: ${item.passedTests}\n'
-                        'Failed: ${item.failedTests}',
+                      final safeIndex = spot.x.round().clamp(
+                        0,
+                        limitedHistory.length - 1,
+                      );
 
+                      final historyItem = limitedHistory[safeIndex];
+
+                      return LineTooltipItem(
+                        '$icon ${historyItem.source.toUpperCase()}\n'
+                        'Passed: ${historyItem.passedTests}\n'
+                        'Failed: ${historyItem.failedTests}',
                         const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -102,6 +117,7 @@ class HistoryLineChart extends StatelessWidget {
                   sideTitles: SideTitles(
                     showTitles: true,
                     interval: 1,
+                    reservedSize: 45,
 
                     getTitlesWidget: (value, meta) {
                       if (value != value.roundToDouble()) {
@@ -126,7 +142,7 @@ class HistoryLineChart extends StatelessWidget {
                 ),
 
                 leftTitles: AxisTitles(
-                  sideTitles: SideTitles(showTitles: true, reservedSize: 32),
+                  sideTitles: SideTitles(showTitles: true, reservedSize: 45),
                 ),
               ),
 

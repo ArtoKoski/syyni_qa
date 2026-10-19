@@ -34,6 +34,11 @@ class PassRateTrendChart extends StatelessWidget {
 
       child: LineChart(
         LineChartData(
+          clipData: const FlClipData.none(),
+
+          minX: -0.5,
+          maxX: (limitedHistory.length - 1).toDouble() + 0.5,
+
           minY: 0,
           maxY: 100,
 
@@ -60,6 +65,7 @@ class PassRateTrendChart extends StatelessWidget {
               sideTitles: SideTitles(
                 showTitles: true,
                 interval: 1,
+                reservedSize: 45,
 
                 getTitlesWidget: (value, meta) {
                   if (value != value.roundToDouble()) {
@@ -90,8 +96,17 @@ class PassRateTrendChart extends StatelessWidget {
           lineTouchData: LineTouchData(
             touchTooltipData: LineTouchTooltipData(
               getTooltipItems: (touchedSpots) {
+                if (limitedHistory.isEmpty) {
+                  return [];
+                }
+
                 return touchedSpots.map((spot) {
-                  final item = limitedHistory[spot.x.toInt()];
+                  final index = spot.x.round().clamp(
+                    0,
+                    limitedHistory.length - 1,
+                  );
+
+                  final item = limitedHistory[index];
 
                   final icon = item.source == 'github' ? '☁' : '💻';
 

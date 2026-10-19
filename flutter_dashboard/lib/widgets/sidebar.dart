@@ -4,6 +4,7 @@ import '../screens/settings_screen.dart';
 import '../screens/api_test_screen.dart';
 import '../screens/reports_screen.dart';
 import '../screens/ui_tests_screen.dart';
+import '../services/dashboard_refresh_service.dart';
 
 class DashboardSidebar extends StatelessWidget {
   const DashboardSidebar({super.key});
@@ -92,19 +93,36 @@ class DashboardSidebar extends StatelessWidget {
               'Settings',
               style: TextStyle(color: Colors.white),
             ),
-            onTap: () {
-              Navigator.push(
+            onTap: () async {
+              final result = await Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const SettingsScreen()),
               );
+
+              if (result == true) {
+                Navigator.popUntil(context, (route) => route.isFirst);
+              }
             },
           ),
+
+          const SizedBox(height: 60),
+
+          ListTile(
+            leading: const Icon(Icons.refresh, color: Colors.white),
+
+            title: const Text('Refresh', style: TextStyle(color: Colors.white)),
+
+            onTap: () {
+              DashboardRefreshService.refresh();
+            },
+          ),
+
           const Spacer(),
 
           const Padding(
             padding: EdgeInsets.all(16),
             child: Text(
-              'Syyni QA Version 0.7',
+              'Syyni QA Version 1.0',
               style: TextStyle(color: Colors.white54),
             ),
           ),

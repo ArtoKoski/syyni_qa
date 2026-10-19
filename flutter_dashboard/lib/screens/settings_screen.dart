@@ -5,6 +5,7 @@ import '../providers/app_settings_provider.dart';
 import '../services/report_service.dart';
 import '../services/settings_service.dart';
 import '../theme/app_colors.dart';
+import '../services/dashboard_refresh_service.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -37,11 +38,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _saveBackendUrl() async {
     await _settingsService.saveBackendUrl(_urlController.text);
 
-    ReportService.baseUrl = _urlController.text;
-
     if (mounted) {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Backend URL saved')));
+    }
+
+    ReportService.baseUrl = _urlController.text;
+
+    if (mounted) {
+      DashboardRefreshService.refresh();
+
+      Navigator.pop(context, true);
     }
   }
 
